@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	    
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+		
+    	<title> Greg Maker - Crie seu piano </title>
+		
+		
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<link rel="stylesheet" href="styles.css"> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+		<meta name="theme-color" content="#053340">
+
+        <style>
+        	body{
+        	    background-color: #F5F5F5;
+        	}
+
+	        	.virtualBtn{
+	        		width: 100px;
+	        		height: 30px;
+	        		color: #404362;
+	        		background-color: #64B664;
+	        		border-radius: 7px;
+	        	}
+	        	
+	        	img{
+        		  -webkit-transform: scale(0.5); /* Saf3.1+, Chrome */
+			     -moz-transform: scale(0.5); /* FF3.5+ */
+			      -ms-transform: scale(0.5); /* IE9 */
+			       -o-transform: scale(0.5); /* Opera 10.5+ */
+			          transform: scale(0.5);
+			          
+			      background-color: #64B664;
+	        	}
+	
+		        aside{
+		        	margin-bottom: 5px;
+		        }
+		        
+		        input[type = 'file']{
+					width: 0.1px;
+					height: 0.1px;
+					opacity: 0;
+					overflow: hidden;
+					position: absolute;
+					z-index: -1;
+		        }
+
+		        .clearBtns{
+		        	margin-left: 15px;
+		        	width: 50px;
+		        	height: 40px;
+	        		color: white;
+	        		background-color:#64B664;
+	        		border-radius: 4px;
+		        }
+		        
+		        .fileName{
+		        	color:#404362;
+		        	margin-left: 30px;
+		        }
+		        
+		        label{
+					background-repeat: no-repeat;
+					background-size: contain;
+					width: 50px;
+					height: 40px;
+					float: left;	
+		        }
+		        
+					label[for="choose_up"] {
+						background-image:url("img/setacima.png");
+					}
+					label[for="choose_down"] {
+						background-image:url("img/setabaixo.png");
+					}
+					label[for="choose_right"] {
+						background-image:url("img/setadireita.png");
+					}
+					label[for="choose_left"] {
+						background-image:url("img/setaesquerda.png");
+					}
+					label[for="choose_space"] {
+						background-image:url("img/espaco.png");
+					}
+					label[for="choose_w"] {
+						background-image:url("img/enter.png");
+					}
+        </style>	
+ 
+		<script src="./gregjs/jquery.min.js"></script>
+        <script type="text/javascript" src="./gregjs/phaser.min.js"></script>
+        <script type="text/javascript" src="./gregjs/boot.js"></script>
+        <script type="text/javascript" src="./gregjs/preloader.js"></script>
+        <script type="text/javascript" src="./gregjs/main.js"></script>
+        
+    </head>
+    <body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="">
+
+		<body> 
+    
+			<div class= "topo"> 
+			<div class= "logomarca">
+			   <a href="http://www.gregmaker.com.br"> <img src= "img/logogreg.png" alt= "Logomarca Greg Maker"> </div> </a> 
+				  
+				<div id= title="titulo"> 
+			 <h1> Mostra de áudio </h1> </div>
+			 
+    	
+    	<div id="noPhaser">
+    		<p style="color: #404362"> Selecione os arquivos salvos em sua máquina e crie seu piano. <br>
+			Caso precise de exemplos para baixar em sua máquina, clique neste link <a href="http://www.gregmaker.com.br/ondebaixarefeitossonoros"> para saber como baixar notas musicais. </a> </p>
+	    	<br> 
+			<div>
+	    		<aside>
+	    			<label for="choose_up"></label>
+					<input type="file" id="choose_up" accept="audio/*" onchange="external_file(this, this.files)">
+					<input type="button" id="clear_up" value="limpar" class="clearBtns">
+					<audio id="audio_up"></audio>
+					<span class="fileName" id="name_up">Nenhum arquivo selecionado </span>
+				</aside>
+		    	
+		    	<aside>
+		    		<label for="choose_down"></label>
+					<input type="file" id="choose_down" accept="audio/*" onchange="external_file(this, this.files)">
+					<input type="button" id="clear_down" value="limpar" class="clearBtns">
+					<audio id="audio_down"></audio>
+					<span class="fileName" id="name_down">Nenhum arquivo selecionado</span>
+				</aside>
+				
+		    	<aside>
+			    	<label for="choose_right"></label>
+					<input type="file" id="choose_right" accept="audio/*" onchange="external_file(this, this.files)">
+					<input type="button" id="clear_right" value="limpar" class="clearBtns">
+					<audio id="audio_right"></audio>
+					<span class="fileName" id="name_right">Nenhum arquivo selecionado</span>
+				</aside>
+				
+				<aside>
+			    	<label for="choose_left"></label>
+					<input type="file" id="choose_left" accept="audio/*" onchange="external_file(this, this.files)">
+					<input type="button" id="clear_left" value="limpar" class="clearBtns">
+					<audio id="audio_left"></audio>
+					<span class="fileName" id="name_left">Nenhum arquivo selecionado</span>
+				</aside>
+				
+		    	<aside>
+			    	<label for="choose_space"></label>
+					<input type="file" id="choose_space" accept="audio/*" onchange="external_file(this, this.files)">
+					<input type="button" id="clear_space" value="limpar" class="clearBtns">
+					<audio id="audio_space"></audio>
+					<span class="fileName" id="name_space">Nenhum arquivo selecionado</span>
+		    	</aside>
+		    	
+		    	<aside>
+			    	<label for="choose_w"></label>
+					<input type="file" id="choose_w" accept="audio/*" onchange="external_file(this, this.files)">
+					<input type="button" id="clear_w" value="limpar" class="clearBtns">
+					<audio id="audio_w"></audio>
+					<span class="fileName" id="name_w"> </span>Nenhum arquivo selecionado</span>
+				</aside>
+			</div>
+			<br>
+			<div>
+				<input class="virtualBtn" type="button" value="Cima" onclick="playSound(0)">
+				<input class="virtualBtn" type="button" value="Baixo" onclick="playSound(1)">
+				<input class="virtualBtn" type="button" value="Direita" onclick="playSound(2)">
+				<input class="virtualBtn" type="button" value="Esquerda" onclick="playSound(3)">
+				<input class="virtualBtn" type="button" value="Espaço" onclick="playSound(4)">
+				<input class="virtualBtn" type="button" value="Enter" onclick="playSound(5)">
+			</div>
+		</div>
+
+		<div id="game"><canvas width="100" height="730" style="display: block; touch-action: none; user-select: none; -webkit-tap-highlight-color: rgba(0, 300, 0, 0); width: 110000px; height: 600px; cursor: inherit;"></canvas></div>
+    
+		<iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;" src="./gregfiles/saved_resource.html"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}" style="display: none;"></div><script>mendeleyWebImporter = {
+		  downloadPdfs(e,t) { return this._call('downloadPdfs', [e,t]); },
+		  open() { return this._call('open', []); },
+		  setLoginToken(e) { return this._call('setLoginToken', [e]); },
+		  _call(methodName, methodArgs) {
+			const id = Math.random();
+			window.postMessage({ id, token: '0.009874785462666624', methodName, methodArgs }, 'http://www.gregmaker.com.br');
+			return new Promise(resolve => {
+			  const listener = window.addEventListener('message', event => {
+				const data = event.data;
+				if (typeof data !== 'object' || !('result' in data) || data.id !== id) return;
+				window.removeEventListener('message', listener);
+				resolve(data.result);
+			  });
+			});
+		  }
+		};</script></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+	

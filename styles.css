@@ -1,0 +1,96 @@
+:root {
+    --textos-principais: #404362; 
+    --titulos-destaques: #E5312D;
+    --botao-limpar: #64B664;
+    --cor-de-fundo: #F5F5F5;
+    --fonte-principal: 'Quicksand'; 
+
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--textos-principais);
+    font-family: var(--fonte-principal); 
+    font-weight: 400;
+}
+
+*{
+    margin: 2;
+    padding: 2;
+}
+
+div#topo { 
+position: absolute;
+width: 360px;
+height: 75px;
+left: 0px;
+top: 0px;
+background: #6e3838;
+border-radius: 0px 0px 0px 90px;
+}
+
+div#logomarca {
+position: absolute;
+width: 106px;
+height: 47px;
+left: 127px;
+top: 17px;
+
+} 
+
+div#title, h1 {
+    font-family: 'Quicksand', sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+color: #E5312D;
+
+div#texto {
+font-family: 'Quicksand', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 20px;
+color: #404362; 
+
+}
+
+
+}
+
+
+/* 
+comentarios 
+font-family: 'Quicksand';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+
+color: #E5312D;
+
+ Rectangle 1 
+
+
+position: absolute;
+width: 360px;
+height: 75px;
+left: 0px;
+top: 0px;
+
+background: #FFFFFF;
+border-radius: 0px 0px 0px 90px;
+
+ logogreg 
+
+
+position: absolute;
+width: 106px;
+height: 47px;
+left: 127px;
+top: 17px;
+
+background: url(img/logogreg.png);
+
+*/ 
