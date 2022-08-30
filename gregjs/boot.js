@@ -1,8 +1,8 @@
 window.onload = start;
 
 function start(){ 
-    WIDTH = 1332; 
-    HEIGHT = 738; 
+    WIDTH = 0; 
+    HEIGHT = 0; 
 
     FACTOR = 5;
     
