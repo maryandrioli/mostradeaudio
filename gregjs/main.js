@@ -1,5 +1,5 @@
 var gameMain = function(game){
-	TEMPO = 120;
+	TEMPO = 3;
 	allInstruments = [];	
 	
 	chosenInstrument = 0;
